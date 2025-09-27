@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo"></div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Our Profile</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Message Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+  <h1>Hi Everyone, Welcome To Website</h1>
+  <p>This Is My First Mini Project</p>
+  <div class="hero-img"></div>
+</section>
+  
+  <section class="headquarter">
+    <h2>Our Headquarter</h2>
+    <div class="hq-container">
+      <div class="hq">
+        <div class="circle"></div>
+        <p>Jakarta</p>
+      </div>
+      <div class="hq">
+        <div class="circle"></div>
+        <p>Bandung</p>
+      </div>
+      <div class="hq">
+        <div class="circle"></div>
+        <p>Surabaya</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="message">
+    <h2>Message Us</h2>
+    <div class="msg-container">
+      <form id="messageForm">
+        <label>Nama :</label>
+        <input type="text" id="nama" required>
+
+        <label>Tanggal Lahir :</label>
+        <input type="date" id="tanggal" required>
+
+        <label>Jenis Kelamin :</label>
+        <div class="radio-group">
+          <input type="radio" name="gender" value="Laki-laki" checked> Laki-Laki
+          <input type="radio" name="gender" value="Perempuan"> Perempuan
+        </div>
+
+        <label>Pesan :</label>
+        <textarea id="pesan" rows="4"></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <div class="output" id="output">
+        <p><b>Current time:</b> -</p>
+        <p><b>Nama:</b> -</p>
+        <p><b>Tanggal Lahir:</b> -</p>
+        <p><b>Jenis Kelamin:</b> -</p>
+        <p><b>Pesan:</b> -</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <footer>
+    <p>Template By RevoU</p>
+  </footer>
+
+  <script>
+    document.getElementById("messageForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const nama = document.getElementById("nama").value;
+      const tanggal = document.getElementById("tanggal").value;
+      const gender = document.querySelector('input[name="gender"]:checked').value;
+      const pesan = document.getElementById("pesan").value;
+      const waktu = new Date().toString();
+
+      document.getElementById("output").innerHTML = `
+        <p><b>Current time:</b> ${waktu}</p>
+        <p><b>Nama:</b> ${nama}</p>
+        <p><b>Tanggal Lahir:</b> ${tanggal}</p>
+        <p><b>Jenis Kelamin:</b> ${gender}</p>
+        <p><b>Pesan:</b> ${pesan}</p>
+      `;
+    });
+  </script>
+</body>
+</html>
